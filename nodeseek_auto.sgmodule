@@ -1,0 +1,11 @@
+#!name=NodeSeek 自动签到
+#!desc=自动抓Cookie + 自动签到
+#!author=ChatGPT
+
+[Script]
+
+# 抓 Cookie（打开网站时触发）
+http-request ^https:\/\/www\.nodeseek\.com\/ script-path=nodeseek_cookie.js, requires-body=false
+
+# 每天签到
+cron "15 9 * * *" script-path=nodeseek_checkin.js
